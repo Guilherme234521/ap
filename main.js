@@ -1,78 +1,95 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+const keySongs = [
+    {
+        key: 1,
+        song: '1',
+        down: false
+    },
+    {
+        key: 2,
+        song: '2',
+        down: false
+    },
+    {
+        key: 3,
+        song: '3',
+        down: false
+    },
+    {
+        key: 4,
+        song: '4',
+        down: false
+    },
+    {
+        key: 5,
+        song: '5',
+        down: false
+    },
+    {
+        key: 6,
+        song: '6',
+        down: false
+    },
+    {
+        key: 7,
+        song: '7',
+        down: false
+    },
+    {
+        key: 8,
+        song: '8',
+        down: false
+    },
+    {
+        key: 9,
+        song: '9',
+        down: false
+    }
+]
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+function tocaSom(audioElement) {
+    audioElement.currentTime = 0
+    audioElement.play()
+}
 
-    <title>Alura MIDI</title>
+keySongs.forEach(song => {
+    let keyElement = document.querySelector(`.tecla_${song.song}`)
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/bateria.png">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="sytlesheet" href="https://cdn1.gnarususercontent.com.br/1/787848/8b1f66dc-900b-4f87-8ac0-2d1255ae1071.png">
+    song.keyElement = keyElement
+    song.audioElement = document.getElementById(`som_tecla_${song.song}`)
 
-</head>
+    keyElement.addEventListener('click', () => {
+        tocaSom(song.audioElement)
+    })   
 
-<body>
+})
 
-    <h1>Projeto pacheco</h1>
+document.onkeydown = (event) => {
+    const key = event.key
+    const keySong =  keySongs.find(keySong => keySong.key == key)
+    
+    if(keySong) {
 
-    <section class="teclado">
-        <button class="tecla tecla_1">
-            <span class="tecla_title">1</span>
-        </button>
+        keySong.keyElement.classList.add('ativa')
 
-        <button class="tecla tecla_2">
-            <span class="tecla_title">2</span>
-        </button>
+        if(!keySong.down) {
+            tocaSom(keySong.audioElement)
+        }
+    
+        keySong.down = true
 
-        <button class="tecla tecla_3">
-            <span class="tecla_title">3</span>
-        </button>
+    }
 
+}
 
-        <button class="tecla tecla_4">
-            <span class="tecla_title">4</span>
-        </button>
+document.onkeyup = (event) => {
+    const key = event.key
+    const keySong =  keySongs.find(keySong => keySong.key == key)
+    
+    if(keySong) {
+    
+        keySong.keyElement.classList.remove('ativa')
+        keySong.down = false
 
-        <button class="tecla tecla_5">
-            <span class="tecla_title">5</span>
-        </button>
+    }
 
-        <button class="tecla tecla_6">
-            <span class="tecla_title">6</span>
-        </button>
-
-
-        <button class="tecla tecla_7">
-            <span class="tecla_title">7</span>
-        </button>
-
-        <button class="tecla tecla_8">
-            <span class="tecla_title">8</span>
-        </button>
-
-        <button class="tecla tecla_9">
-            <span class="tecla_title">9</span>
-        </button>
-    </section>
-
-    <audio src="sounds/key1.wav" id="som_tecla_1"></audio>
-    <audio src="sounds/key2.wav" id="som_tecla_2"></audio>
-    <audio src="sounds/key3.wav" id="som_tecla_3"></audio>
-    <audio src="sounds/key4.wav" id="som_tecla_4"></audio>
-    <audio src="sounds/key5.wav" id="som_tecla_5"></audio>
-    <audio src="sounds/key6.wav" id="som_tecla_6"></audio>
-    <audio src="sounds/key7.wav" id="som_tecla_7"></audio>
-    <audio src="sounds/key8.wav" id="som_tecla_8"></audio>
-    <audio src="sounds/key9.wav" id="som_tecla_9"></audio>
-
-    <script src="main.js"></script>
-</body>
-
-</html>
+}

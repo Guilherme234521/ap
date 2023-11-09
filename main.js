@@ -1,47 +1,47 @@
 const keySongs = [
     {
         key: 1,
-        song: '11',
+        song: 'a',
         down: false
     },
     {
         key: 2,
-        song: '22',
+        song: 'b',
         down: false
     },
     {
         key: 3,
-        song: '33',
+        song: 'c',
         down: false
     },
     {
         key: 4,
-        song: '44',
+        song: 'd',
         down: false
     },
     {
         key: 5,
-        song: '55',
+        song: 'e',
         down: false
     },
     {
         key: 6,
-        song: '66',
+        song: 'f',
         down: false
     },
     {
         key: 7,
-        song: '77',
+        song: 'g',
         down: false
     },
     {
         key: 8,
-        song: '88',
+        song: 'h',
         down: false
     },
     {
         key: 9,
-        song: '99',
+        song: 'i',
         down: false
     }
 ]

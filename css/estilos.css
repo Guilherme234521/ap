@@ -1,14 +1,17 @@
 :root {
-  --cinza: #777;
-  --vermelha: #ff5555;
-  --vermelha-escura: #cc0000;
-  --branca: #f0f0f0;
-  --luz: rgb(255, 255, 0);
+  --cinza: #000;
+  --vermelha: #c00000;
+  --vermelha-escura: #1e1b1b;
+  --branca: #eeecec;
+  --luz: rgb(219 219 9);
 }
 
 body {
   align-items: center;
-  background: linear-gradient(45deg, #222, #444);
+  background-image: url(https://i2.wp.com/www.filminquiry.com/wp-content/uploads/2018/08/ronnie-coleman-king.jpg?fit=1050%2C700&ssl=1);
+  background-size: 2500px 1200px;
+  background-position: -1px -41px;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -17,14 +20,14 @@ body {
 }
 
 h1 {
-  color: var(--branca);
-  margin-bottom: 20px;
+  color: #dce64c;
+  margin-bottom: 35px;
   font-size: 2.5rem;
 }
 
 .teclado {
-  background: linear-gradient(to bottom, #444 0%, #222 100%);
-  box-shadow: 6px 6px 0 6px #333, 10px 10px 10px #000;
+  background: linear-gradient(to bottom, #3b737c 0%, #242323 100%);
+  box-shadow: 6px 6px 0 5px #000, 10px 10px 10px #acb0b3;
   border-radius: 20px;
   display: grid;
   gap: 10px;
@@ -34,12 +37,12 @@ h1 {
 
 .tecla {
   background-color: var(--branca);
-  border-radius: 20px;
-  box-shadow: 3px 3px 0 var(--cinza);
+  border-radius: 30px;
+  box-shadow: 3px 4px 0 var(--cinza);
   color: var(--vermelha);
   cursor: pointer;
   height: 100px;
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: bold;
   line-height: 100px;
   text-align: center;
